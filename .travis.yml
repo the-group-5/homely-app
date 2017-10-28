@@ -25,13 +25,13 @@ before_install:
     # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
-    - "npm config set spin false"
-    - sleep 3
-    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+    - "npm config set spin false"7357
+    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:7357 &
       
 
 install:
     - cd $(./.ci_helper.sh name)
     - npm install
+
 script:
     - ember test --server
